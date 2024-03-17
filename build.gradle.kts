@@ -27,6 +27,11 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	implementation("org.springframework.boot:spring-boot-starter-data-redis")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
+	testImplementation("org.testcontainers:testcontainers:1.17.2")
+	testImplementation("io.mockk:mockk:1.12.0")
+	testImplementation("org.springframework.boot:spring-boot-testcontainers")
+	testImplementation("org.testcontainers:junit-jupiter")
 }
 
 tasks.withType<KotlinCompile> {
