@@ -17,12 +17,14 @@ class NimGameServiceImpl(
 
     override fun startGame(nimGameState: NimGameState): NimGameState {
         validateInitializationRules(nimGameState)
+        logger.info("New Game started with gameId ${nimGameState.id}.")
         return nimGameRepository.save(nimGameState)
     }
 
     override fun restartGame(nimGameState: NimGameState): NimGameState  {
         validateGameStateExistence(nimGameState.id.toString())
         validateInitializationRules(nimGameState)
+        logger.info("Game restarted with gameId ${nimGameState.id}.")
         return nimGameRepository.save(nimGameState)
     }
 
@@ -33,6 +35,7 @@ class NimGameServiceImpl(
         validateMoveParameters(currentGame, move)
 
         currentGame.heapSize -= move
+        logger.info("PlayerMove of $move stones was preformed on GameState with gameId $gameId.")
 
         if (currentGame.heapSize == 0) {
             currentGame.gamePhase = GamePhase.COMPUTER_WON
@@ -53,7 +56,7 @@ class NimGameServiceImpl(
             currentGame.gamePhase = GamePhase.PLAYER_WON
             currentGame.heapSize = 0
         }
-
+        logger.info("ComputerMove of $randomMove stones was preformed on GameState with gameId ${currentGame.id}.")
         return nimGameRepository.save(currentGame)
     }
 
@@ -71,13 +74,13 @@ class NimGameServiceImpl(
 
         // Update the game state with the computer's move
         currentGame.heapSize -= computerMove
-        println(computerMove)
 
         // If no stones remain, mark the game phase as PLAYER_WON
         if (currentGame.heapSize == 0) {
             currentGame.gamePhase = GamePhase.PLAYER_WON
         }
 
+        logger.info("IntelligentComputerMove of $computerMove stones was preformed on GameState with gameId ${currentGame.id}.")
         // Save and return the updated game state
         return nimGameRepository.save(currentGame)
     }
@@ -124,7 +127,7 @@ class NimGameServiceImpl(
     }
 
     companion object {
-        val logger: Logger = LoggerFactory.getLogger(NimGameServiceImpl::class.java)
+        private val logger: Logger = LoggerFactory.getLogger(NimGameServiceImpl::class.java)
     }
 
 }

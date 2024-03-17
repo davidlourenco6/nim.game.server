@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "1477c900-f7b4-4dd0-a686-427ca1d0b934",
+		"name": "nim-game-server",
+		"description": "This collection aims to provide pre-prepared requests to test and play Inverse Nim Game",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27768052"
+	},
+	"item": [
+		{
+			"name": "startGame",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numberOfMoves\": 5,\n    \"player\": \"HUMAN\",\n    \"heapSize\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/nim-game/start",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"nim-game",
+						"start"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "restartGame",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"77617b78-5977-4b8f-9ebd-c3e3cb89db07\",\n    \"numberOfMoves\": 51,\n    \"player\": \"HUMAN\",\n    \"heapSize\": 11\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/nim-game/restart",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"nim-game",
+						"restart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetchGame",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"77617b78-5977-4b8f-9ebd-c3e3cb89db07\",\n    \"numberOfMoves\": 51,\n    \"player\": \"HUMAN\",\n    \"heapSize\": 11\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/nim-game/v1/fetch/66f57082-b966-4095-8c2d-614d8ec78413",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"nim-game",
+						"v1",
+						"fetch",
+						"66f57082-b966-4095-8c2d-614d8ec78413"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "playerMove",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"77617b78-5977-4b8f-9ebd-c3e3cb89db07\",\n    \"numberOfMoves\": 51,\n    \"player\": \"HUMAN\",\n    \"heapSize\": 11\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/nim-game/v1/play/33c6513f-c02a-45fa-b8df-bab7d72f0511/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"nim-game",
+						"v1",
+						"play",
+						"33c6513f-c02a-45fa-b8df-bab7d72f0511",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
