@@ -1,0 +1,242 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "NIM Game Server OpenAPI ",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "local"
+    }
+  ],
+  "paths": {
+    "/nim-game/v1/start": {
+      "post": {
+        "tags": [
+          "nim-game-controller"
+        ],
+        "summary": "Initialize Game State ",
+        "description": "Creates a new game instance with the parameters passed on body.",
+        "operationId": "createGame",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NimGameStateDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful start game.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NimGameStateDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/nim-game/v1/restart": {
+      "post": {
+        "tags": [
+          "nim-game-controller"
+        ],
+        "summary": "Reinitialize Game State ",
+        "description": "Updates an old game instance with the parameters passed on body.",
+        "operationId": "restartGame",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NimGameResetStateDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful restart game.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NimGameStateDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/nim-game/v1/play/{id}/{move}": {
+      "post": {
+        "tags": [
+          "nim-game-controller"
+        ],
+        "summary": "Move Action",
+        "description": "Updates a game instance for a certain id.",
+        "operationId": "createGame_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "move",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful restart game.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NimGameStateDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/nim-game/v1/fetch/{id}": {
+      "get": {
+        "tags": [
+          "nim-game-controller"
+        ],
+        "summary": "Fetch Game State",
+        "description": "Fetch game instance given certain Id",
+        "operationId": "fetchGame",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful fetch game state.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NimGameStateDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "NimGameStateDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "maxMoveAllowed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "player": {
+            "type": "string",
+            "enum": [
+              "HUMAN",
+              "COMPUTER"
+            ]
+          },
+          "heapSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "gamePhase": {
+            "type": "string",
+            "enum": [
+              "IN_PROGRESS",
+              "PLAYER_WON",
+              "COMPUTER_WON"
+            ]
+          }
+        }
+      },
+      "NimGameResetStateDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "maxMoveAllowed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "player": {
+            "type": "string",
+            "enum": [
+              "HUMAN",
+              "COMPUTER"
+            ]
+          },
+          "heapSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    }
+  }
+}
