@@ -39,11 +39,31 @@ This repository contains the backend implementation of the Nim Game, built with 
     ./gradlew bootRun
     ```
 
+/Users/lod2lis/Desktop/Holisticon/nim.game.server/postman
+
 ## Swagger API Documentation
 
 Explore the API endpoints accessing recourses/apiDocs/docs.json:
 
 [ApiDocs File](src/main/resources/apiDocs/docs.json)
+
+## Postman Collection
+
+To get started, follow these simple steps:
+
+1. Install Postman: If you haven't already, download and install Postman.
+
+2. Import Collection: Download the collection file (./postman/nim-game-server.postman_collection.json) from this repository and import it into your Postman app.
+
+3. Explore Endpoints: Start exploring CRUD endpoints available in the collection. Each request is thoroughly documented with descriptions, headers, and example payloads in openAPI.
+The collection is organized into different requests for functionality. Here's provided CRUD operations:
+
+- createGame
+- restartGame
+- fetchGame
+- playerMove
+
+[NimGameServer Collection](./postman/nim-game-server.postman_collection.json)
 
 ## Final Notes
 All the optional goals were implemented:
