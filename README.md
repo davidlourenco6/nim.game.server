@@ -65,6 +65,10 @@ The collection is organized into different requests for functionality. Here's pr
 
 [NimGameServer Collection](./postman/nim-game-server.postman_collection.json)
 
+## Code Coverage Evidences (run tests with coverage)
+![image](https://github.com/davidlourenco6/nim.game.server/assets/57639139/0efd0580-62b6-4acf-b04a-bc4e100de92b)
+
+
 ## Final Notes
 All the optional goals were implemented:
 
