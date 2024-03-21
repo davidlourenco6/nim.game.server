@@ -14,7 +14,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"numberOfMoves\": 5,\n    \"player\": \"HUMAN\",\n    \"heapSize\": 10\n}",
+					"raw": "{\n    \"maxMoveAllowed\": 5,\n    \"player\": \"HUMAN\",\n    \"heapSize\": 10,\n    \"gamePhase\": \"IN_PROGRESS\",\n    \"intelligenceMode\" : true\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -22,7 +22,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/nim-game/start",
+					"raw": "http://localhost:8080/nim-game/v1/start",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -30,6 +30,7 @@
 					"port": "8080",
 					"path": [
 						"nim-game",
+						"v1",
 						"start"
 					]
 				}
@@ -43,7 +44,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": \"77617b78-5977-4b8f-9ebd-c3e3cb89db07\",\n    \"numberOfMoves\": 51,\n    \"player\": \"HUMAN\",\n    \"heapSize\": 11\n}",
+					"raw": "{\n    \"id\": \"65fbb364-c18f-4b16-878a-e6e9fbdb912e\",\n    \"maxMoveAllowed\": 5,\n    \"player\": \"HUMAN\",\n    \"heapSize\": 10,\n    \"gamePhase\": \"IN_PROGRESS\",\n    \"intelligenceMode\" : true\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -51,7 +52,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/nim-game/restart",
+					"raw": "http://localhost:8080/nim-game/v1/restart",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -59,6 +60,7 @@
 					"port": "8080",
 					"path": [
 						"nim-game",
+						"v1",
 						"restart"
 					]
 				}
@@ -83,7 +85,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/nim-game/v1/fetch/66f57082-b966-4095-8c2d-614d8ec78413",
+					"raw": "http://localhost:8080/nim-game/v1/fetch/65fbb364-c18f-4b16-878a-e6e9fbdb912e",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -93,7 +95,7 @@
 						"nim-game",
 						"v1",
 						"fetch",
-						"66f57082-b966-4095-8c2d-614d8ec78413"
+						"65fbb364-c18f-4b16-878a-e6e9fbdb912e"
 					]
 				}
 			},
@@ -114,7 +116,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/nim-game/v1/play/33c6513f-c02a-45fa-b8df-bab7d72f0511/1",
+					"raw": "http://localhost:8080/nim-game/v1/play/65fbb364-c18f-4b16-878a-e6e9fbdb912e/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -124,7 +126,7 @@
 						"nim-game",
 						"v1",
 						"play",
-						"33c6513f-c02a-45fa-b8df-bab7d72f0511",
+						"65fbb364-c18f-4b16-878a-e6e9fbdb912e",
 						"1"
 					]
 				}
